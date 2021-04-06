@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <span>JJ - Loja dos Produtos inexistentes</span>
+  <span class="toolbar-spacer"></span>
+  <div id="passar_mouse">
+    <button mat-icon-button aria-label="Ir para o carrinho" *ngIf="(cart$| async) as cart">
+      <mat-icon [matBadge]="cart.length">shopping_cart</mat-icon>
+    </button>
+    <div id="mostrar" *ngFor="let item of cart$ | async">
+      <!-- <mat-card-subtitle>{{item.id}}</mat-card-subtitle> -->
+      <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
+      <mat-card-subtitle>{{item.price.toFixed(2)}}</mat-card-subtitle>
+    </div>
+  </div>
+  <!-- <mat-icon [matBadge]="cart.length">shopping_cart</mat-icon> -->
+</mat-toolbar>
+<app-nav></app-nav>
+
+
