@@ -1,0 +1,26 @@
+<mat-card class="home mat-elevation-z3">
+    <mat-card-subtitle class="subtitle">Itens adicionados</mat-card-subtitle>
+    <mat-list role="list">
+        <mat-list-item class="texto" role="listitem" *ngFor="let item of cart$ | async">
+            <mat-checkbox class="example-margin" [(ngModel)]="checked"></mat-checkbox>
+            {{item.name}}
+            <button mat-raised-button color="warn" class="remove" (click)="removeItem(item.id)">Remove item</button>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+<a mat-list-item class="texto-icon sidenav">
+    <i class="material-icons">
+        storefront
+    </i>
+    Retire na Loja<br>
+    <i class="material-icons">
+        local_shipping
+    </i>
+    Calcular frete<br>
+    <i class="material-icons">
+        storage
+    </i>
+    Descrição do produto
+</a>
+
+

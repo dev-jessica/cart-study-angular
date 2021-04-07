@@ -1,4 +1,10 @@
- <!-- <mat-icon [matBadge]="cart.length">shopping_cart</mat-icon> -->
+<!-- <mat-form-field class="example-form-field">
+  <mat-label>Nome do produto</mat-label>
+  <input matInput type="text">
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field> -->
 <mat-grid-list  class="container" cols="3" rowHeight="3:1">
   <mat-grid-tile *ngFor="let produto of produtos">
     <mat-card class="product-card">
@@ -8,11 +14,3 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-
-<mat-list role="list">
-  <mat-list-item class="texto" role="listitem" *ngFor="let item of cart$ | async">
-    {{item.name}}
-    <button mat-raised-button color="warn" (click)="removeItem(item.id)">Remove item</button>
-  </mat-list-item>
-</mat-list>

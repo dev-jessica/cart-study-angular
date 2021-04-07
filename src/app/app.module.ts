@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule }   from '@angular/forms';
+
+
+
 import { AppComponent } from './app.component';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +24,11 @@ import { cartReducer } from './reducer/cart/cart.reducer';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
-import {AppRoutingModule } from './app-routing.module'
+import {AppRoutingModule } from './app-routing.module';
+import { CartComponent } from './cart/cart.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -29,12 +37,14 @@ import {AppRoutingModule } from './app-routing.module'
     AppComponent,
     NavComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
     ],
   imports: [
     BrowserModule,
     StoreModule.forRoot({ count: counterReducer, cart: cartReducer }),
     BrowserAnimationsModule, 
+    FormsModule,
     MatButtonModule, 
     MatGridListModule, 
     MatListModule, 
@@ -44,7 +54,10 @@ import {AppRoutingModule } from './app-routing.module'
     MatBadgeModule,
     MatTooltipModule,
     MatSidenavModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

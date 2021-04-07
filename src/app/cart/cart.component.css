@@ -1,0 +1,24 @@
+.texto-icon{
+    color: black;
+    margin: 0;
+}
+
+.remove{
+    margin-left: auto;
+}
+
+.material-icons{
+    margin-top: 10px;
+}
+
+.sidenav{
+    width: 200px;
+   }
+    .sidenav i{
+       padding-right: 10px;
+      }
+   
+      .example-margin {
+        margin: 0 10px;
+      }
+    
