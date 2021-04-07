@@ -38,7 +38,7 @@ export class ProductComponent {
     }
   ]
  
-  constructor(
+  constructor(private _snackBar: MatSnackBar,
     private store: Store<{ count: number, cart: Array<any> }>
     ) {
     this.count$ = store.select('count')
@@ -57,8 +57,11 @@ export class ProductComponent {
   }
 
   addItem(item: any) {
-    // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
+        // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
     this.store.dispatch(addItem(item));
+    this._snackBar.open('Produto adicionado: {{item.name}}', 'Fechar', {
+      duration: 2000,
+    });
   }
 
     removeItem(id: number) {

@@ -14,35 +14,32 @@ export class CartComponent {
   title = 'cart-study-angular';
   count$: Observable<number>;
   cart$: Observable<Array<any>>;
-  allComplete: boolean = false;
 
-
-constructor(private store: Store<{ count: number, cart: Array<any> }>) {
-  this.count$ = store.select('count')
-  this.cart$ = store.select('cart');
-}
+  constructor(private store: Store<{ count: number, cart: Array<any> }>) {
+    this.count$ = store.select('count')
+    this.cart$ = store.select('cart');
+  }
   ngOnInit(): void {
   }
-increment() {
-  this.store.dispatch(increment())
-}
+  increment() {
+    this.store.dispatch(increment())
+  }
 
-decrement() {
-  this.store.dispatch(decrement())
-}
+  decrement() {
+    this.store.dispatch(decrement())
+  }
 
-reset() {
-  this.store.dispatch(reset())
-}
+  reset() {
+    this.store.dispatch(reset())
+  }
 
-addItem(item: any) {
-  // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
-  this.store.dispatch(addItem(item))
-}
-removeItem(id: number) {
-  this.store.dispatch(removeItem({ id }))
-}
-
+  addItem(item: any) {
+    // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
+    this.store.dispatch(addItem(item))
+  }
+  removeItem(id: number) {
+    this.store.dispatch(removeItem({ id }))
+  }
 
 }
 

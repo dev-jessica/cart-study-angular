@@ -1,44 +1,72 @@
 .toolbar-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
   }
 
-
-  #teste{
-      color: white;
+  .shopping-cart {
+  display: none;
+  margin: 10px 10px 0 0;
+  background: #212121;
+  width: 220px;
+  right: 0;
+  position: absolute;
+  border-radius: 3px;
+  padding: 20px;
+  z-index: 20;
+  }
+  .shopping-cart-show{
+    display: initial;
   }
 
-  #mostrar{
-    display: none;
-    position:absolute;
-    top: 10px;  
-    left:80%;
-    right:100px;
-    margin: auto;
-    width:250px;
-    height:200px;
-    border:1px solid black;
-    background: black;
-    color: white;
-   
-  }  
-  #passar_mouse:hover #mostrar{
-    display:block;
+  .shopping-cart .header {
+  justify-content: space-between;
+  }
+  .shopping-cart .products {
+  max-height: 300px;
+  overflow-y: auto;
   }
 
+  .shopping-cart button {
+    width: 100%;
+    }
 
-.sidenav{
+  .shopping-cart:after {
+  bottom: 100%;
+  left: 89%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #212121;
+  border-width: 8px;
+  margin-left: -8px;
+  }
+
+  /* width */
+.shopping-cart .products::-webkit-scrollbar {
+  width: 5px;
+  }
+  /* Handle */
+  .shopping-cart .products::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2.5px;
+  }
+  /* Handle on hover */
+  .shopping-cart .products::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  }
+
+  .sidenav {
   width: 200px;
- }
- .sidenav a{
-     color: white;
-    }
- 
-    .sidenav i{
-     padding-right: 10px;
-    }
- 
-    .content{
-        padding: 16px;
-        background-color: white;
-    }
-
+  }
+  .sidenav a {
+  color: white;
+  }
+  .sidenav i {
+  padding-right: 10px;
+  }
+  .content {
+  padding: 16px;
+  background-color: white;
+  }

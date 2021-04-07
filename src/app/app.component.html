@@ -1,18 +1,26 @@
-<mat-toolbar class="principal">
+<mat-toolbar>
   <span>JJ - Loja dos Produtos inexistentes</span>
   <span class="toolbar-spacer"></span>
-  <div id="passar_mouse">
-    <button mat-icon-button aria-label="Ir para o carrinho" *ngIf="(cart$| async) as cart">
-      <mat-icon [matBadge]="cart.length" routerLink='/cart'>shopping_cart</mat-icon>
-    </button>
-    <mat-list id="mostrar" *ngFor="let item of cart$ | async">
-      <!-- <mat-card-subtitle>{{item.id}}</mat-card-subtitle> -->
-      <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
-      <mat-card-subtitle>{{item.price.toFixed(2)}}</mat-card-subtitle>
-    </mat-list>
-  </div>
-  <!-- <mat-icon [matBadge]="cart.length">shopping_cart</mat-icon> -->
+  <button mat-icon-button aria-label="Ir para o carrinho" *ngIf="cart$ | async as cart"
+    (click)="toggleDropdownCart()">
+    <mat-icon [matBadge]="cart.length">shopping_cart</mat-icon>
+  </button>
 </mat-toolbar>
+<mat-list class="shopping-cart" [ngClass]="{'shopping-cart-show' : shoppingCartShow}" *ngIf="cart$ | async as cart">
+  <div mat-subheader class="header">
+    <mat-icon>shopping_cart</mat-icon>
+    <span>Total: R$ {{ sumTotal(cart).toFixed(2).replace('.', ',') }}</span>
+  </div>
+  <div class="products">
+    <mat-list-item *ngFor="let item of cart">
+      <div mat-line>{{ item.name }}</div>
+      <div mat-line>
+        R$ {{ item.price.toFixed(2) }} Quantidade: {{ item.quant }}
+      </div>
+    </mat-list-item>
+  </div>
+  <button mat-raised-button color="primary" routerLink='/cart' [disabled]="!cart.length">
+    Finalizar compra
+  </button>
+</mat-list>
 <app-nav></app-nav>
-
-
