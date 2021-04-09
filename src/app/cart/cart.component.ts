@@ -21,25 +21,18 @@ export class CartComponent {
   }
   ngOnInit(): void {
   }
-  increment() {
-    this.store.dispatch(increment())
-  }
-
-  decrement() {
-    this.store.dispatch(decrement())
-  }
-
-  reset() {
-    this.store.dispatch(reset())
-  }
-
+  
   addItem(item: any) {
     // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
     this.store.dispatch(addItem(item))
   }
   removeItem(id: number) {
+    console.log("passou ")
     this.store.dispatch(removeItem({ id }))
   }
 
+  sumTotal(cart) {
+    return cart.reduce((a, b) => a + b.price, 0)
+  }
 }
 

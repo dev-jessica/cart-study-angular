@@ -1,12 +1,59 @@
-<mat-card class="home mat-elevation-z3">
-    <mat-card-subtitle class="subtitle">Itens adicionados</mat-card-subtitle>
-    <mat-list role="list">
+<div class="title">
+    <h1>Carrinho de compras</h1>
+    <h2>n itens</h2>
+
+
+</div>
+<mat-divider></mat-divider>
+
+<!-- <mat-list role="list">
+    <mat-list-item class="texto" role="listitem" *ngFor="let item of cart$ | async">
+        <mat-checkbox class="example-margin" [(ngModel)]="checked"></mat-checkbox>
+        {{item.name}}
+        <button mat-raised-button color="warn" class="remove" (click)="removeItem(item.id)">Remove item</button>
+    </mat-list-item>
+</mat-list> -->
+
+
+
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let item of cart$ | async">
+        <div class="item">
+        <div>{{item.name}}</div>
+        <div class="button-container">
+
+            <button mat-mini-fab color="primary" (click)="removeItem(item.id)"
+            aria-label="Example icon button with a menu icon">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <span>{{item.quant}}</span>
+            <button 
+            mat-mini-fab color="primary" 
+            aria-label="Example icon button with a menu icon">
+
+            <mat-icon>add</mat-icon>
+                        </button>
+        </div>
+        <div>{{item.price.toFixed(2).replace('.', ',')}}</div>
+        <button mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    </mat-list-item>
+   </mat-list>
+
+<mat-card class="home mat-elevation-z3" *ngIf="cart$ | async as cart">
+    <mat-card-header class="subtitle">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Total: R$ {{ sumTotal(cart).toFixed(2).replace('.', ',') }}</span>
+    </mat-card-header>
+    <!-- <mat-list role="list">
         <mat-list-item class="texto" role="listitem" *ngFor="let item of cart$ | async">
             <mat-checkbox class="example-margin" [(ngModel)]="checked"></mat-checkbox>
             {{item.name}}
             <button mat-raised-button color="warn" class="remove" (click)="removeItem(item.id)">Remove item</button>
         </mat-list-item>
-    </mat-list>
+    </mat-list> -->
 </mat-card>
 <a mat-list-item class="texto-icon sidenav">
     <i class="material-icons">

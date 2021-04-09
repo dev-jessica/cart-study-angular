@@ -1,3 +1,28 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+mat-divider{
+    border-top-color: black;
+}
+
+mat-list-item{ 
+    color: black!important;
+}
+
+.item{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
 .texto-icon{
     color: black;
     margin: 0;
@@ -7,9 +32,9 @@
     margin-left: auto;
 }
 
-.material-icons{
+/* .material-icons{
     margin-top: 10px;
-}
+} */
 
 .sidenav{
     width: 200px;
