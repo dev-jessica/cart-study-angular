@@ -1,17 +1,25 @@
 .product-card{
     width: 90%;
-}
-
-.texto{
-    color: black;
-  
-  }
-
-  .color{
-      color: black;
   }
 
   .example-form-field {
     width: 200px;
     color: black;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    color: black;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    color: black;
+
+  }
+
+  .cor{
+    color: black !important
   }

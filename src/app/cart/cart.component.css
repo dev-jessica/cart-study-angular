@@ -9,7 +9,11 @@ mat-divider{
 }
 
 mat-list-item{ 
-    color: black!important;
+    color: black!important;   
+}
+
+.tamanho{
+    width:300px
 }
 
 .item{

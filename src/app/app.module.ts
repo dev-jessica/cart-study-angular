@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // Reducers
 import { counterReducer, initialState } from './counter.reducer';
@@ -62,7 +63,8 @@ import { CartComponent } from './cart/cart.component';
     MatInputModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule
   ],
 
   providers: [],

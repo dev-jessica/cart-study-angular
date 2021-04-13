@@ -1,8 +1,9 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrement, increment, reset } from '../counter.actions';
-import { addItem, removeItem } from '../reducer/cart/cart.actions';
+import { addItem, removeItem, removeTotal } from '../reducer/cart/cart.actions';
 
 
 @Component({
@@ -21,18 +22,34 @@ export class CartComponent {
   }
   ngOnInit(): void {
   }
-  
+
   addItem(item: any) {
     // this.store.dispatch(addItem({ id: 1, name: 'Perfume', quant: 2, price: 100.0 }))
     this.store.dispatch(addItem(item))
   }
   removeItem(id: number) {
-    console.log("passou ")
     this.store.dispatch(removeItem({ id }))
   }
 
   sumTotal(cart) {
-    return cart.reduce((a, b) => a + b.price, 0)
+    console.log("passou", cart)
+    return cart.reduce((a, b) => a + (b.price *b.quant), 0)
   }
+
+  sumQtd(cart) {
+    return cart.reduce((a, b) => a + b.quant, 0)
+  
+  }
+
+  sumQtdPrice(cart, id) {
+    let item = cart.find(cartItem => cartItem.id === id);
+    return item.quant * item.price;
+  }
+
+  removeTotal(id: number) {
+    this.store.dispatch(removeTotal({ id }))
+  }
+
+
 }
 

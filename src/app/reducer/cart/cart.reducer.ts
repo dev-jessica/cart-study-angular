@@ -1,6 +1,6 @@
-import { createDirectiveTypeParams } from "@angular/compiler/src/render3/view/compiler";
+import { isNgTemplate } from "@angular/compiler";
 import { createReducer, on } from "@ngrx/store";
-import { addItem, removeItem } from "./cart.actions";
+import { addItem, removeItem, removeTotal } from "./cart.actions";
 export const cartState = [];
 const _cartReducer = createReducer(
     cartState,
@@ -34,26 +34,24 @@ const _cartReducer = createReducer(
         let itemEncontrado = state.find(cartItem => cartItem.id === item.id);
 
         if (itemEncontrado && itemEncontrado.quant > 1) {
-            console.log("remove")
-            // caso tenha encontrado...
+
             return state.map((cartItem) => {
-                // Pega o item que ja tem e guarda na variavel item a ser alterado (itemAlterado)
                 let itemAlterado = cartItem;
-                // Verifica se o item que vai ser alterado é igual ao item que o usúario passou
-                if (itemAlterado.id === cartItem.id) {
-                    // caso seja igual ele cria um novo item com as mesmas propriedades falando que o quant vai ser menos 1
+                if (itemAlterado.id === itemEncontrado.id) {
                     itemAlterado = { ...cartItem, quant: cartItem.quant - 1 }
                 }
                 return itemAlterado;
-                // Retorna o item depois de ter sido manipulado para formar o novo carrinho
             })
         } else {
-            // return [...state, { ...item, quant: 0 }];
             return state.filter((cartItem) => cartItem.id !== item.id)
 
         }
     }),
-
+    on(removeTotal, (state, item) => {
+        // let itemEncontrado = state.find(cartItem => cartItem.id === item.id);
+        return state.filter((cartItem) => cartItem.id !== item.id)
+    }
+    )
 );
 export function cartReducer(state: any, action: any) {
     return _cartReducer(state, action);
