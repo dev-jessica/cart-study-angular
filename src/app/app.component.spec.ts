@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { counterReducer } from './counter.reducer';
+import { cartReducer } from './reducer/cart/cart.reducer';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[StoreModule.forRoot({ count: counterReducer, cart: cartReducer })],
       declarations: [
         AppComponent
       ],
@@ -22,10 +26,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('cart-study-angular');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('cart-study-angular app is running!');
-  });
+
 });

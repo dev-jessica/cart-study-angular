@@ -143,8 +143,6 @@ export class ProductComponent {
 
   BuscarFiltro() {
     this.ProductCurrent = this.ProductCurrent.filter(teste => {
-      console.log(teste, this.buscarTexto)
-
       return teste.name.toLowerCase().indexOf(this.buscarTexto.toLowerCase()) !== -1;
 
 
