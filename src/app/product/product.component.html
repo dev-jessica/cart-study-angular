@@ -1,18 +1,17 @@
-<mat-form-field class="example-form-field cor" (ngSubmit)="BuscarFiltro()">
+<form (ngSubmit)="BuscarFiltro()">
+<mat-form-field class="example-form-field cor" >
   <mat-label class="cor">Nome do produto</mat-label>
   <input class="cor" matInput type="text" (keyup)="setBuscarTexto($event)">
   <button class="cor"mat-button matSuffix mat-icon-button (click)="BuscarFiltro()">
     <mat-icon class="cor">search</mat-icon>
-    
-  </button>
+     </button>
 </mat-form-field> 
+</form>
+
 
  <mat-grid-list  class="container" cols="3" rowHeight="3:1">
  <mat-grid-list *ngIf="ProductCurrent.lenght !==0" class="container" cols="3" rowHeight="3:1">
   <mat-grid-tile *ngFor="let prod of ProductCurrent">
-
-
-  <!-- <mat-grid-tile *ngFor="let prod of ProductCurrent"> -->
     <mat-card class="product-card">
       <mat-card-title>{{prod.name}}</mat-card-title>
       <mat-card-subtitle>R$ {{prod.price.toFixed(2)}}</mat-card-subtitle>

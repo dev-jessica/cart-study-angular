@@ -32,7 +32,7 @@ export class CartComponent {
   }
 
   sumTotal(cart) {
-    console.log("passou", cart)
+    console.log(typeof(cart),"jessica")
     return cart.reduce((a, b) => a + (b.price *b.quant), 0)
   }
 

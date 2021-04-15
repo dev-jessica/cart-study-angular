@@ -106,6 +106,8 @@ export class ProductComponent {
     
     this.productService.read().subscribe((products: Product[]) => {
       this.ProductCurrent = products
+      this.products = products
+
       console.log(products)
     });
   }
@@ -142,7 +144,7 @@ export class ProductComponent {
   }
 
   BuscarFiltro() {
-    this.ProductCurrent = this.ProductCurrent.filter(teste => {
+    this.ProductCurrent = this.products.filter(teste => {
       return teste.name.toLowerCase().indexOf(this.buscarTexto.toLowerCase()) !== -1;
 
 

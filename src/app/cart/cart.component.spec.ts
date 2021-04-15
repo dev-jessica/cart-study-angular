@@ -12,10 +12,10 @@ describe('CartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[StoreModule.forRoot({ count: counterReducer, cart: cartReducer })],
-      declarations: [ CartComponent ]
+      imports: [StoreModule.forRoot({ count: counterReducer, cart: cartReducer })],
+      declarations: [CartComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -26,18 +26,25 @@ describe('CartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-     });
-     it('adicionar um item no carrinho e verificar se o item foi adicionado no html', () => {
-      fixture = TestBed.createComponent(CartComponent);
-      fixture.detectChanges()
-      const compiled = fixture.nativeElement;
-      expect(compiled.querySelector('.mat-list-item item tamanho').innerHTML).toEqual('perfume')
+  });
+  it('adicionar um item no carrinho e verificar se o item foi adicionado no html', () => {
+    fixture = TestBed.createComponent(CartComponent);
+    fixture.componentInstance.addItem({id: 1, name: 'teste', price: 3})
+    fixture.detectChanges();
+    let compiled = fixture.nativeElement;
+    expect(
+    compiled.querySelector('.item .tamanho').innerHTML
+    ).toEqual('teste');
     });
 
-    // it('adicionar um item no carrinho e verificar se o item foi adicionado no html', () => {
-    //   fixture = TestBed.createComponent(CartComponent);      
-    //   let click = fixture.debugElement.query(By.html('.mat-list-item item tamanho')).nativeElement;
-    //   click.dispatchEvent(new Event('click'))
-    //   expect(component.addItem.name)
-    // });
+    it('verificar total de valores no html', () => {
+      fixture.componentInstance.addItem({id: 1, name: 'teste', price: 3})
+      fixture.componentInstance.addItem({id: 1, name: 'teste', price: 3})
+      fixture.detectChanges();
+      let compiled = fixture.nativeElement;
+      expect(
+      compiled.querySelector('.subtitle span').innerHTML
+      ).toEqual('Total: R$ 6,00');
+      });
+
 });
