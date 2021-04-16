@@ -2,6 +2,34 @@
   flex: 1 1 auto;
   }
 
+  .background{
+    background-color:rgb(233 30 99) !important
+  }
+
+  #header{
+    height:92px; 
+    background:rgb(233 30 99) !important;
+    border-bottom:20px solid #eee;
+  }
+  #header ul{padding:15px 0 0 5px;}
+  #header li{
+    list-style:none;
+    float:left;
+    margin-right:30px;	
+  }
+  #header li a{
+    font-weight:700;
+    color:white !important;
+    font-size:14px;	
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  #headerli a:hover{
+    color:rgb(233 30 99) !important;
+    cursor:pointer;
+  }
+
   .shopping-cart {
   display: none;
   margin: 10px 10px 0 0;

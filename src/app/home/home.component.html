@@ -1,4 +1,20 @@
-<mat-card class="home mat-elevation-z3 color">
+<mat-card class="home mat-elevation-z3 espacamento">
     <mat-card-title class="title">Bem Vindo!</mat-card-title>
-    <mat-card-subtitle class="subtitle">Loja de Produtos - Jéssica e João </mat-card-subtitle>
+    <mat-card-subtitle class="subtitle">Loja com os melhores produtos! ;) </mat-card-subtitle>
 </mat-card>
+
+
+<mat-carousel
+timings="300ms ease-in"
+[autoplay]="true"
+interval="2000"
+color="black"
+>
+<mat-carousel-slide class="tamanho"
+  *ngFor="let slide of slides; let i = index"
+  [image]="slide.image"
+  overlayColor="white"
+  [hideOverlay]="true"
+>
+</mat-carousel-slide>
+</mat-carousel>

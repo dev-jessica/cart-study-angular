@@ -25,6 +25,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 
 // Pages
@@ -33,6 +35,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CartComponent } from './cart/cart.component';
+
 
 
 @NgModule({
@@ -64,7 +67,8 @@ import { CartComponent } from './cart/cart.component';
     MatSnackBarModule,
     MatMenuModule,
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCarouselModule
   ],
 
   providers: [],

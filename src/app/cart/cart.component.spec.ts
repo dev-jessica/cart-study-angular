@@ -47,4 +47,14 @@ describe('CartComponent', () => {
       ).toEqual('Total: R$ 6,00');
       });
 
+      it('verificar quantidade dos itens no html', () => {
+        fixture.componentInstance.addItem({id: 1, name: 'jessica123', price: 1, quant: 1})
+        fixture.componentInstance.addItem({id: 1, name: 'jessica456', price: 4, quant: 1})
+        fixture.detectChanges();
+        let compiled = fixture.nativeElement;
+        expect(
+        compiled.querySelector('.title h2').innerHTML
+        ).toEqual('2 itens');
+        });
+
 });

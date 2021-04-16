@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   
+  slides = [{'image': 'https://source.unsplash.com/300x300/?west-australia'}, 
+  {'image': 'https://source.unsplash.com/300x300/?perths/demo.png'}, 
+  {'image': 'https://source.unsplash.com/300x300/?margaretriver,australi'}]
 
-  constructor() { }
-
-  ngOnInit(): void {
+  
+  ngOnInit() {
+    this.slides 
   }
-
 }
+
+
+
+
